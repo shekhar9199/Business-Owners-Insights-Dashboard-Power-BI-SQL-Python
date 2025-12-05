@@ -1,0 +1,99 @@
+USE business_owner_db;
+
+CREATE TABLE business_owners (
+    business_name   VARCHAR(255),
+    owner_name      VARCHAR(255),
+    city            VARCHAR(100),
+    state           VARCHAR(100),
+    mobile_number   VARCHAR(20)
+);
+SELECT * FROM business_owners
+
+SELECT COUNT(*) FROM business_owners;
+
+-- Checking for the missing values
+SELECT 
+    SUM(business_name IS NULL OR business_name = '') AS missing_business_name,
+    SUM(owner_name IS NULL OR owner_name = '') AS missing_owner_name,
+    SUM(city IS NULL OR city = '') AS missing_city,
+    SUM(state IS NULL OR state = '') AS missing_state,
+    SUM(mobile_number IS NULL OR mobile_number = '') AS missing_mobile_numbers
+FROM business_owners;
+
+-- checking for duplicate value
+SELECT 
+    business_name, owner_name, city, state, mobile_number, COUNT(*) AS cnt
+FROM business_owners
+GROUP BY business_name, owner_name, city, state, mobile_number
+HAVING cnt > 1;
+
+-- Query1 Distinct states and cities
+SELECT COUNT(DISTINCT state) AS Total_States, 
+	   COUNT(DISTINCT city) AS Total_City 
+FROM business_owners
+
+-- Query2 Top 10 states by number of businesses
+SELECT state, COUNT(*) AS Number_of_business
+FROM business_owners
+GROUP BY state
+ORDER BY Number_of_business DESC
+LIMIT 10
+
+-- Query3 Top 10 cities by number of businesses
+SELECT city, COUNT(*) AS Number_of_business
+FROM business_owners
+GROUP By city
+ORDER BY Number_of_business DESC
+LIMIT 10
+
+-- Query4 State-wise Percentage Contribution of businesses 
+SELECT state , 
+		COUNT(*) AS Total_business, 
+        ROUND(COUNT(*) * 100/(SELECT COUNT(*) FROM business_owners),2) AS Percentage_Contribution
+FROM business_owners
+GROUP BY state
+ORDER BY Percentage_Contribution DESC
+
+-- Query5 City-to-State Distribution
+SELECT city, state, COUNT(*) AS Total_Business
+FROM business_owners
+GROUP BY city,state
+ORDER BY Total_Business DESC
+
+-- Query6 Owners who have multiple businesses
+SELECT owner_name, COUNT(*) AS Number_of_business 
+FROM business_owners
+GROUP BY owner_name
+ORDER BY Number_of_business DESC
+
+-- Query7 Most common keywords in business names
+-- (This helps to categorize businesses later)
+SELECT SUBSTRING_INDEX(business_name,' ',1) AS First_Word,
+	COUNT(*) AS Total_Business
+FROM business_owners 
+GROUP BY First_Word
+ORDER BY Total_Business DESC
+
+
+-- REMOVING MIS-SPELL STATES NAME
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE business_owners
+SET state = 'Chhattisgarh'
+WHERE state = 'Chattisgarh';
+
+UPDATE business_owners
+SET state = 'Foreign'
+WHERE state IN ('England', 'Oregon', 'T''Ai-Wan');
+
+SET SQL_SAFE_UPDATES = 1;
+
+SELECT COUNT(DISTINCT state) AS State
+FROM business_owners
+
+SELECT DISTINCT state AS State
+FROM business_owners
+
+
+
