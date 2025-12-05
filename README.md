@@ -1,40 +1,33 @@
-Power BI • SQL • Python (NLP) • Data Analytics Project
+📘 Business Owners Insights Dashboard
+Power BI • SQL • Python • Data Analytics Project
 📝 Project Overview
 
-This project analyzes a large real-world dataset of 100,000+ Indian business owners.
-The goal was to transform raw, unstructured data into meaningful business intelligence dashboards by using:
-
-MySQL for data cleaning
-
-Python (NLP) for business categorization
-
-Power BI for interactive dashboards
-
-The final solution helps identify:
+This project analyzes a real-world dataset of 104,000+ Indian businesses to uncover insights related to:
 
 Business distribution across states and cities
 
-Industry trends
+Owner-level business concentration
 
-Multi-business owners
+Industry category segmentation
 
-Regional strengths across India
+Regional business patterns
+
+The solution demonstrates end-to-end Data Analytics & BI development using SQL, Python, and Power BI.
 
 🎯 Objectives
 
-✔ Clean & transform raw dataset (100K+ records)
-✔ Standardize inconsistent state/city names
-✔ Engineer new insights using NLP-based business classification
-✔ Build 4 professional Power BI dashboards
-✔ Provide actionable insights for business and market analysis
+✔ Clean and standardize 100K+ raw records
+✔ Fix inconsistent state & city names
+✔ Create automated business category classification using Python (NLP)
+✔ Build four professional Power BI dashboards
+✔ Generate insights useful for business planning & market analysis
 
 🛠 Tech Stack
 Category	Tools
-Database	MySQL (Workbench)
-Programming	Python, Pandas
-ML/NLP	Keyword-based classification
-Visualization	Power BI Desktop
-Environment	Google Colab
+Database	MySQL
+Programming	Python (Pandas, Regex)
+Business Intelligence	Power BI
+Cloud Notebook	Google Colab
 📂 Dataset Fields
 
 business_name
@@ -47,150 +40,122 @@ state
 
 mobile_number
 
-After NLP enrichment:
+New Feature Engineered (Python NLP)
 
-business_category (10 categories)
+business_category (10 categories extracted from business_name)
 
 🧹 Phase 1 — Data Cleaning (SQL)
 
 Performed:
 
-Removal of duplicates
+Duplicate removal
 
-Fixing inconsistent state names
+State name normalization (36 unique states after cleaning)
 
-Standardizing city formatting
+City formatting standardization
 
-Checking null/missing values
+Validation of missing values
 
-Exporting clean dataset
+Export of cleaned dataset
 
-Example SQL used:
+Example Query
 
 SELECT state, COUNT(*) 
 FROM business_owners 
-GROUP BY state 
+GROUP BY state
 ORDER BY COUNT(*) DESC;
 
-🤖 Phase 2 — NLP-Based Business Categorization (Python)
+🤖 Phase 2 — Business Categorization (Python NLP)
 
-Since the dataset had no business industry,
-I built a Python NLP function to classify businesses into:
+Business names were classified into industry sectors using keyword matching.
 
-IT / Software
-
-Retail / Trading
-
-Construction / Real Estate
-
-Interior / Decor
-
-Consulting
-
-Fashion / Textile
-
-Transport / Logistics
-
-Finance
-
-Education
-
-Other
-
-Python snippet:
+Example:
 
 def categorize_business(name):
     name = str(name).lower()
-    if any(x in name for x in ['tech','software','it','solutions']):
+    if any(x in name for x in ['tech','software','solutions']):
         return 'IT / Software'
-    elif any(x in name for x in ['shop','store','trading']):
+    elif any(x in name for x in ['shop','trading','retail']):
         return 'Retail / Trading'
-    elif any(x in name for x in ['construction','infra','builders']):
+    elif any(x in name for x in ['infra','builders','construction']):
         return 'Construction / Real Estate'
-    elif any(x in name for x in ['fashion','textile','boutique']):
-        return 'Fashion / Textile'
     else:
         return 'Other'
 
-📊 Phase 3 — Power BI Dashboard
 
-The project includes four interconnected dashboards:
+This produced 10 business categories, including IT, Retail, Consulting, etc.
 
-🖼 📌 Dashboard Screenshots
+📊 Phase 3 — Power BI Dashboards
 
-⚠️ IMPORTANT:
-Replace the image links below with your GitHub image URLs after uploading.
+A complete BI solution with four interconnected dashboards was built.
+
+🖼 📌 DASHBOARD SCREENSHOTS
+
+⚠️ Replace the image URLs with your real GitHub links after uploading.
 
 ⭐ 1. Business Overview Dashboard
-<img src="https://raw.githubusercontent.com/your_username/your_repo/main/overview.png" width="900">
-⭐ 2. State vs Business Category Heatmap
-<img src="https://raw.githubusercontent.com/your_username/your_repo/main/state_heatmap.png" width="900">
-⭐ 3. City Level Analysis
-<img src="https://raw.githubusercontent.com/your_username/your_repo/main/city_analysis.png" width="900">
-⭐ 4. Owner Insights Dashboard
-<img src="https://raw.githubusercontent.com/your_username/your_repo/main/owner_insights.png" width="900">
-📈 Key Insights
-🔹 1. Maharashtra is India's Business Capital
+<img width="1279" height="707" alt="Image" src="https://github.com/user-attachments/assets/8414315e-8f95-44f4-b06d-d3034c53496b" />
+⭐ 2. Owner Insights Dashboard
+<img width="1278" height="719" alt="Image" src="https://github.com/user-attachments/assets/30fa0257-d9f0-4433-8c0f-7c8749703761" />
+⭐ 3. City-Level Analysis Dashboard
+<img width="1281" height="717" alt="Image" src="https://github.com/user-attachments/assets/5f5606fa-2d55-486d-87a0-4980e0629292" />
+⭐ 4. Business Overview Heatmap
+<img width="1267" height="715" alt="Image" src="https://github.com/user-attachments/assets/06933646-238c-45fd-979a-e74b745dd2db" />
+📈 Key Insights Extracted
+🔹 1. Maharashtra Dominates Indian Business Landscape
 
-Most businesses
+21K+ businesses
 
-Leader in IT, Retail & Real Estate
+Leads in IT, Retail, Construction
 
-Mumbai alone contributes the highest across multiple categories
+🔹 2. IT / Software is the Fastest-Growing Category
 
-🔹 2. IT / Software is the largest identified industry
+26K+ businesses
 
-26,739 IT-related businesses
+Highly concentrated in:
 
-Strong in Maharashtra, Karnataka, Tamil Nadu, Telangana
+Bangalore
 
-🔹 3. Retail / Trading is widespread across India
+Chennai
 
-Appears in almost all states and major cities.
+Hyderabad
 
-🔹 4. Multi-Business Ownership is Common
+Mumbai
 
-One owner has 147 businesses
+🔹 3. Retail / Trading is the Most Widely Spread Category
 
-Several owners hold 100+ businesses
+Appears across all states and nearly every city.
 
-Maharashtra & Gujarat have the highest multi-business owners
+🔹 4. Multi-Business Ownership is Significant
 
-🔹 5. City-Level Trends
+8,331 owners have more than 1 business
 
-Mumbai → IT + Retail dominant
+One owner holds 147 businesses
 
-Chennai → IT + Services
+Gujarat & Maharashtra have the highest multi-business ownership concentration
 
-Ahmedabad → Retail + Trade heavy
+🔹 5. Top Business Cities
 
-Delhi → Mixed business categories
+Mumbai
+
+Chennai
+
+Delhi
+
+Ahmedabad
+
+Pune
 
 📁 Project Deliverables
 
-✔ Cleaned dataset (business_owners_final.csv)
-✔ Python notebook for NLP classification
-✔ Power BI dashboard (.pbix file)
-✔ Insight summary & visualizations
-✔ GitHub project documentation
+✔ Clean SQL-transformed dataset
+✔ Python classification script
+✔ Final Power BI .pbix dashboard
+✔ Insights summary
+✔ GitHub documentation (this README)
 
-🏁 Conclusion
-
-This project demonstrates end-to-end data analytics capability, covering:
-
-Data cleaning
-
-Feature engineering
-
-NLP-based enrichment
-
-Insights extraction
-
-BI dashboard design
-
-It provides a clear view of India's business landscape and reveals patterns in state, city, and owner-level distributions.
-
-🙋‍♂️ Author
+🧑‍💼 About the Author
 
 Shekhar Suman
-Aspiring Data Analyst | Power BI | SQL | Python | BI Dashboards
+Aspiring Data Analyst
+Power BI | SQL | Python | Data Visualization
