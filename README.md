@@ -1,65 +1,65 @@
-## 📘 Business Owners Insights Dashboard
+📘 <h1 align="center">Business Owners Insights Dashboard</h1>
+<p align="center"> End-to-end analytics project analyzing <strong>104,000+ Indian businesses</strong> using Power BI, SQL & Python. Reveals insights on business distribution, ownership patterns & regional trends across India. </p>
+<br>
+<h1>🖼️ Dashboard Preview</h1>
+<br>
+⭐ 1. Business Overview
+<p align="center"><img width="800" src="https://github.com/user-attachments/assets/8414315e-8f95-44f4-b06d-d3034c53496b" /></p> <br>
+⭐ 2. Owner Insights
+<p align="center"><img width="800" src="https://github.com/user-attachments/assets/30fa0257-d9f0-4433-8c0f-7c8749703761" /></p> <br>
+⭐ 3. City-Level Analysis
+<p align="center"><img width="800" src="https://github.com/user-attachments/assets/5f5606fa-2d55-486d-87a0-4980e0629292" /></p> <br>
+⭐ 4. Business Heatmap
+<p align="center"><img width="800" src="https://github.com/user-attachments/assets/06933646-238c-45fd-979a-e74b745dd2db" /></p>
+<br>
 
-An end-to-end data analytics project analyzing 104,000+ Indian businesses using Power BI, SQL, and Python, uncovering trends in business distribution, ownership patterns, and regional insights.
-
-🖥️ Dashboard Preview
-
-⭐ 1. Business Overview Dashboard
-<img width="1279" src="https://github.com/user-attachments/assets/8414315e-8f95-44f4-b06d-d3034c53496b" />
-⭐ 2. Owner Insights Dashboard
-<img width="1278" src="https://github.com/user-attachments/assets/30fa0257-d9f0-4433-8c0f-7c8749703761" />
-⭐ 3. City-Level Analysis Dashboard
-<img width="1281" src="https://github.com/user-attachments/assets/5f5606fa-2d55-486d-87a0-4980e0629292" />
-⭐ 4. Business Overview Heatmap
-<img width="1267" src="https://github.com/user-attachments/assets/06933646-238c-45fd-979a-e74b745dd2db" />
-🎯 Objectives
+<h2>🎯 Objectives</h2>
+<br>
 
 Clean & standardize 100K+ business records
 
-Fix inconsistent state & city naming
+Fix inconsistent state & city names
 
-Build business_category using Python NLP
+Build business categories using Python NLP
 
-Develop four Power BI dashboards
+Design four Power BI dashboards
 
-Generate insights for business strategy & planning
+Provide actionable insights for business strategy
 
+<br>
 🛠 Tech Stack
-Category	Tools
-🗄️ Database	MySQL
-🐍 Programming	Python (Pandas, Regex)
-📊 BI Tool	Power BI
-☁️ Notebook	Google Colab
+🔥 Premium Card Layout
+<br> <table> <tr> <td width="250"><strong>🗄️ Database</strong><br>MySQL</td> <td width="250"><strong>🐍 Programming</strong><br>Python (Pandas, Regex)</td> </tr> <tr> <td><strong>📊 BI Tool</strong><br>Power BI</td> <td><strong>☁️ Notebook</strong><br>Google Colab</td> </tr> </table>
+<br>
 📂 Dataset Fields
-
+<br>
 business_name
-
 owner_name
-
 city
-
 state
-
 mobile_number
+business_category  (engineered with Python NLP)
 
-business_category (engineered with Python NLP)
-
+<br>
 🧹 Data Cleaning (SQL)
+<br>
 
-Removed duplicates
+Performed:
 
-Normalized states (36 cleaned values)
+✔ Duplicate removal
+✔ State normalization (36 consistent names)
+✔ City standardization
+✔ Missing value handling
 
-Standardized city names
-
-Validated and handled missing values
-
+<br>
 SELECT state, COUNT(*) 
 FROM business_owners
 GROUP BY state
 ORDER BY COUNT(*) DESC;
 
+<br>
 🤖 Business Categorization (Python NLP)
+<br>
 def categorize_business(name):
     name = str(name).lower()
     if any(x in name for x in ['tech','software','solutions']):
@@ -72,38 +72,41 @@ def categorize_business(name):
         return 'Other'
 
 
-Produces 10 final business categories.
+✔ Categorizes records into 10 final business groups
 
-📈 Key Insights
+<br>
+<h2>📈 Key Insights</h2>
+<br>
 
-Maharashtra ranks #1 with 21K+ businesses
+Maharashtra leads with 21K+ businesses
 
-IT / Software is the fastest-growing category (26K+ businesses)
+IT / Software is fastest-growing with 26K+ firms
 
-Retail / Trading has the widest geographic spread
+Retail/Trading shows widest presence across India
 
-8,331 owners operate multiple businesses
+8,331 owners run multiple companies
 
-One owner controls 147 businesses
+One owner manages 147 businesses
 
 Top cities: Mumbai, Chennai, Delhi, Ahmedabad, Pune
 
+<br>
 📦 Deliverables
+<br>
 
-✔ Clean SQL dataset
-
-✔ Python categorization script
-
-✔ Power BI .pbix file
-
+✔ Cleaned SQL dataset
+✔ Python NLP categorization script
+✔ Power BI .pbix report
 ✔ Dashboard screenshots
+✔ Insight summary
+✔ Polished documentation
 
-✔ Insights summary
-
-✔ Complete GitHub documentation
-
+<br>
 👤 About the Author
+<br>
 
 Shekhar Suman
 Aspiring Data Analyst
-Power BI • SQL • Python • Data Visualization
+Specializing in Power BI • SQL • Python • Visualization
+
+<br> <p align="center"> Made with ❤️ for data analytics & real-world insights. </p>
